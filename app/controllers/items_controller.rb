@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    user = User.find(params[:id])
+    user = User.find(params[:user_id])
     item = user.items.create(item_params)
     render json: item, status: :created
   end
@@ -31,5 +31,5 @@ class ItemsController < ApplicationController
   def item_params
     params.permit(:name, :description, :price)
   end
-  
+
 end

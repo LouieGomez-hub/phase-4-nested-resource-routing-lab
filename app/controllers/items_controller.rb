@@ -22,4 +22,14 @@ class ItemsController < ApplicationController
     render json: item, status: :created
   end
 
+  private
+
+  def render_not_found_response
+    render json: { error: "Item not found" }, status: :not_found
+  end
+
+  def item_params
+    params.permit(:name, :description, :price)
+  end
+  
 end

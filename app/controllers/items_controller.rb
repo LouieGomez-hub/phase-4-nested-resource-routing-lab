@@ -11,4 +11,12 @@ class ItemsController < ApplicationController
     render json: items, include: :user
   end
 
+  def show
+    item = Item.find(params[:id])
+    render json: item, include: :user
+  end
+
+  def create
+  end
+
 end
